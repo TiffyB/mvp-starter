@@ -18,38 +18,36 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
-  Leaderboard Lookup
+  KitchInventory
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-  Allowing Strava addicts to quickly search their favorite Strava segment leaderboard.
+  Inventory your kitchen and build your grocery list.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-
-  Being on a Strava Leaderboard is a goal of many Strava users. Knowing the currently leaderboard times is half the battle of getting onto this prestigious list. Leaderboard Lookup allows users to easily search for their favorite segment and painlessly display the leaderboard with a single click.
-
+  KitchInventory allows users to inventory what's in their kitchen. New groceries can be added with a click of a button along with optional expiration date tracking. Users can also remove items from their inventory that have been used, and add grocery lists for their next trip to the store.
 
 ## Problem ##
   > Describe the problem your product solves.
-  On Strava, leaderboards must be looked up by routes (known as "segments"). However, when a user doesn't know the exact segment name, segments must be looked by city and state, which is difficult on Strava's web interface. For example, a search for 'San Jose, California' will yield all San Jose's around the world. Leaderboards must be looked up by segment name, which is impossible without a good segment search.
+  It's tough to know whether an item you're looking at in the grocery store is already in your kitchen. KitchInventory allows users to see a digital list of the contents of their fridge and pantry.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
-  Leaderboard Lookup allows you to filter by city and state and filter segments by a search query. Then a simple click on the chosen segment will display the leaderboard.
+  Kitchen items are displayed in alphabetical order and can also be searched by name. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
-  "Leaderboard Lookup allows users to access Strava's data to painless view a segment's leaderboard"
+  "KitchInventory takes the guesswork out of grocery shopping by giving providing a digital inventory of your kitchen's contents"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
-  Navigate to the Segment tab and type in a city and state. Click on a segment and you'll see it's leaderboard.
+  Make an account with KitchInventory and add the contents of your kitchen. Generate your grocery list by typing in the item you need. As items are placed in your cart press "+" and they will be automatically added to your inventory.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-  "Now I can show off my place on the leaderboard with a click of a button!"
+  "KitchInventory has helped me cut down on my food waste. I never buy two of the same item with KitchInventory in my pocket!"
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
-  Navigate to the home page and type in your city and state. Click a segment and view the leaderboard.
+  Navigate to the home page and create a new account. Put together a grocery list and start shopping!
