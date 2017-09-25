@@ -18,27 +18,38 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Leaderboard Lookup
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Allowing Strava addicts to quickly search their favorite Strava segment leaderboard.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
+  Being on a Strava Leaderboard is a goal of many Strava users. Knowing the currently leaderboard times is half the battle of getting onto this prestigious list. Leaderboard Lookup allows users to easily search for their favorite segment and painlessly display the leaderboard with a single click.
+
+
 ## Problem ##
   > Describe the problem your product solves.
+  On Strava, leaderboards must be looked up by routes (known as "segments"). However, when a user doesn't know the exact segment name, segments must be looked by city and state, which is difficult on Strava's web interface. For example, a search for 'San Jose, California' will yield all San Jose's around the world. Leaderboards must be looked up by segment name, which is impossible without a good segment search.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  Leaderboard Lookup allows you to filter by city and state and filter segments by a search query. Then a simple click on the chosen segment will display the leaderboard.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Leaderboard Lookup allows users to access Strava's data to painless view a segment's leaderboard"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Navigate to the Segment tab and type in a city and state. Click on a segment and you'll see it's leaderboard.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "Now I can show off my place on the leaderboard with a click of a button!"
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  Navigate to the home page and type in your city and state. Click a segment and view the leaderboard.
