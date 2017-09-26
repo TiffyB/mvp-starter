@@ -5,7 +5,7 @@ const GroceryList = (props) => (
   <div>
     <h4> Grocery List </h4>
     There are { props.items.length } items on your list.
-    { props.items.map(item => <GroceryItem item={item} removeItem={props.removeItem} update={props.update}/>)}
+    { props.items.map(item => <GroceryItem item={item} removeItem={props.removeItem} moveItem={props.moveItem} update={props.update}/>)}
   </div>
 )
 

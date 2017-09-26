@@ -78,6 +78,20 @@ app.post('/groceries/remove', jsonParser, function(req, res) {
 		})
 })
 
+// app.post('/groceries/move', jsonParser, function(req, res) {
+// 	// res.send(req.body);
+//   return items.removeGrocery(req.body)
+//     .then(() => {
+//       return items.addItem(req.body)
+//     })
+//     .then(() => {
+//       res.send('received post to groceries/move')
+//     })
+//     .error(error => {
+//       res.sendStatus(500);
+//     })
+// })
+
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');

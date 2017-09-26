@@ -105,8 +105,25 @@ class App extends React.Component {
     //subtract one from quantity
   }
 
-  addToGroceryList(item) {
-
+  moveToPantry(item, update) {
+    var itemToMove = {
+      itemname: item.itemname,
+      quantity: item.quantity
+    }
+    console.log("hello from move to pantry: ", itemToMove)
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/groceries/move',
+    //   data: JSON.stringify(itemToMove),
+    //   contentType: 'application/json',
+    //   success: (data) => {
+    //     console.log('data', data);
+    //     // update()
+    //   },
+    //   error: (err) => {
+    //     console.log("err", err);
+    //   }
+    // })
   }
 
   render () {
@@ -114,7 +131,7 @@ class App extends React.Component {
       <h1>KitchInventory</h1>
       <AddItem update={this.componentDidMount.bind(this)}/>
       <List items={this.state.items} removeItem={this.removeItem} update={this.componentDidMount.bind(this)}/>
-      <GroceryList items={this.state.neededItems} removeItem={this.removeGrocery} update={this.componentDidMount.bind(this)}/>
+      <GroceryList items={this.state.neededItems} removeItem={this.removeGrocery} moveItem = {this.moveToPantry} update={this.componentDidMount.bind(this)}/>
     </div>)
   }
 }

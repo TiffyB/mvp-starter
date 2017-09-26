@@ -7,7 +7,10 @@ const GroceryItem = (props) => (
   <span> 
   <button name="remove" onClick={function(e) {
   	props.removeItem(props.item, props.update);
-  }} >Remove</button>
+  }} >X</button>
+  <button name="purchased" onClick={function(e) {
+  	props.moveItem(props.item, props.update);
+  }} >Purchased!</button>
   </span>
   </div>
 )

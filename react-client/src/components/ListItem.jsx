@@ -7,7 +7,7 @@ const ListItem = (props) => (
   <span> 
   <button name="remove" onClick={function(e) {
   	props.removeItem(props.item, props.update);
-  }} >Remove</button>
+  }} >Finished!</button>
   </span>
   </div>
 )
