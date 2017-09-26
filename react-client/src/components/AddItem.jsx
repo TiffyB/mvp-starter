@@ -3,6 +3,7 @@ import React from 'react';
 class AddItem extends React.Component {
   constructor(props) {
     super(props)
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       item: '',
       quantity: ''
@@ -12,18 +13,23 @@ class AddItem extends React.Component {
   handleSubmit(e) {
     var context = this;
     e.preventDefault();
-    console.log(context);
+    console.log('context', context.state);
     var groceryItem = {
-      item: context.state.item,
-      quantity: context.state.quantity
+      item: this.state.item,
+      quantity: this.state.quantity
     }
+    context.setState({
+      item: '',
+      quantity: ''
+    })
+    console.log(groceryItem)
     $.ajax({
       type: 'POST',
       url: 'http:\//\//127.0.0.1:3000/items',
       data: JSON.stringify(groceryItem),
       contentType: 'application/json',
       success: function(data) {
-        context.clearInput();
+        console.log('data', data);
         context.props.update();
       },
       error: function(error) {
@@ -57,11 +63,11 @@ class AddItem extends React.Component {
     return(
       <div>
         <h4> Add Purchased Grocery Item Below </h4>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleSubmit}>
           Item name:<br/>
-          <input type="text" name="itemname" onChange={this.changeItem.bind(this)} /><br/>
+          <input type="text" name="itemname" value={this.state.item} onChange={this.changeItem.bind(this)} /><br/>
           Quantity: <br/>
-          <input type="text" name="quantity" onChange={this.changeQuantity.bind(this)} /><br/>
+          <input type="text" name="quantity" value={this.state.quantity} onChange={this.changeQuantity.bind(this)} /><br/>
           <input name="submit" type="submit" value="Submit"  />
         </form>
       </div>)
