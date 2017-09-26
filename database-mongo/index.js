@@ -34,6 +34,18 @@ var addItem = function(item) {
 
 }
 
+var removeItem = function(item) {
+  return new Promise(function(resolve, reject) {
+    Item.remove(item, function(err) {
+      if (err) {
+        reject(err);
+      }
+      resolve();
+    })
+  })
+  
+}
+
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
     if(err) {

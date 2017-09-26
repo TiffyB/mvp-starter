@@ -35,6 +35,18 @@ app.post('/items', jsonParser, function(req, res) {
 	})	
 })
 
+app.post('/items/remove', jsonParser, function(req, res) {
+	console.log(req.body.itemname);
+	res.send('received post to items/remove')
+	// return items.addItem(req.body)
+	// .then((item) => {
+	// 	res.end('got it');
+	// })
+	// .error((error) => {
+	// 	res.sendStatus(500);
+	// })	
+})
+
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });

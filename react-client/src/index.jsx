@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
 import AddItem from './components/AddItem.jsx';
+import GroceryList from './components/GroceryList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      items: [],
+      neededItems: []
     }
   }
 
@@ -38,12 +40,37 @@ class App extends React.Component {
     });
   }
 
+  removeItem() {
+    var context = this;
+    console.log('clicked')
+    // console.log(this.itemname);
+
+    var itemToRemove = {
+      itemname: this.itemname
+    }
+    console.log(itemToRemove)
+    $.ajax({
+      type: 'POST',
+      url: '/items/remove',
+      data: JSON.stringify(itemToRemove),
+      contentType: 'application/json',
+      success: (data) => {
+        // context.componentDidMount();
+        console.log(data);
+      },
+      error: (err) => {
+        console.log("err", err);
+      }
+    })
+  }
+
 
   render () {
     return (<div>
       <h1>KitchInventory</h1>
       <AddItem update={this.componentDidMount.bind(this)}/>
-      <List items={this.state.items}/>
+      <List items={this.state.items} removeItem={this.removeItem}/>
+      <GroceryList items={this.state.neededItems}/>
     </div>)
   }
 }
