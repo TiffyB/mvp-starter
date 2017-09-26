@@ -11,9 +11,8 @@ class AddItem extends React.Component {
 
   handleSubmit(e) {
     var context = this;
-    // console.log("state value", this.state.item);
-    // console.log("quantity", this.state.quantity);
     e.preventDefault();
+    console.log(context);
     var groceryItem = {
       item: context.state.item,
       quantity: context.state.quantity
@@ -24,7 +23,7 @@ class AddItem extends React.Component {
       data: JSON.stringify(groceryItem),
       contentType: 'application/json',
       success: function(data) {
-        console.log('data', data);
+        context.clearInput();
         context.props.update();
       },
       error: function(error) {
@@ -46,7 +45,13 @@ class AddItem extends React.Component {
     })
   }
 
+  clearInput() {
 
+    this.setState({
+      item: '',
+      quantity: ''
+    })
+  }
   
   render() {
     return(
