@@ -107,7 +107,7 @@ class App extends React.Component {
 
   moveToPantry(item, update) {
     var itemToMove = {
-      itemname: item.itemname,
+      item: item.itemname,
       quantity: item.quantity
     }
     console.log("hello from move to pantry: ", itemToMove)
@@ -118,7 +118,7 @@ class App extends React.Component {
       contentType: 'application/json',
       success: (data) => {
         console.log('data', data);
-        // update()
+        update()
       },
       error: (err) => {
         console.log("err", err);

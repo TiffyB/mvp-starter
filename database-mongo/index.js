@@ -65,6 +65,8 @@ var removeItem = function(item) {
   })
 }
 
+
+
 var removeGrocery = function(item) {
   return new Promise(function(resolve, reject) {
     Grocery.remove(item, function(err) {
@@ -97,9 +99,19 @@ var selectAllGroceries = function(callback) {
   });
 };
 
+var moveFromGroceryToItem = function(item) {
+  var itemname = item.item;
+  var quantity = item.quantity;
+  return removeGrocery({itemname: itemname, quantity: quantity})
+  .then(() => {
+    return addItem(item);
+  })
+}
+
 module.exports.selectAll = selectAll;
 module.exports.addItem = addItem;
 module.exports.removeItem = removeItem;
 module.exports.addGroceryItem = addGroceryItem;
 module.exports.selectAllGroceries = selectAllGroceries;
 module.exports.removeGrocery = removeGrocery;
+module.exports.moveFromGroceryToItem = moveFromGroceryToItem;
