@@ -16,9 +16,10 @@ class AddItem extends React.Component {
       item: context.state.item
     }
     $.ajax({
-      method: 'POST',
+      type: 'POST',
       url: 'http:\//\//127.0.0.1:3000/items',
       data: JSON.stringify(groceryItem),
+      contentType: 'application/json',
       success: function(data) {
         console.log('data', data);
       },

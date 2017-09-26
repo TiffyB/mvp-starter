@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var items = require('../database-mongo');
 
 var app = express();
-
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
 // UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../react-client/dist'));
 
@@ -23,11 +24,18 @@ app.get('/items', function (req, res) {
   });
 });
 
-app.post('/items', function(req, res) {
-	console.log(req.params);
+app.post('/items', jsonParser, function(req, res) {
+	console.log(req.body);
+	// var data;
+	// req.on('data', function(data) {
+	// 	data = data;
+	// })
+	// req.on('end', function() {
+	// 	console.log(data)
+		res.end('got it');
+	// })
 
-
-	res.end('got it');
+	
 })
 
 app.listen(3000, function() {
