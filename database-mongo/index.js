@@ -26,9 +26,9 @@ var Item = mongoose.model('Item', itemSchema);
 var Grocery = mongoose.model('Grocery', grocerySchema)
 
 var addItem = function(item) {
-  var itemname = item.itemname;
+  var itemname = item.item;
   var quantity = item.quantity;
-  var newItem = new Item({ item });
+  var newItem = new Item({ itemname: itemname, quantity: quantity });
   return new Promise(function(resolve, reject) {
     newItem.save(function(err, newItem) {
       if (err) {

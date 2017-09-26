@@ -111,19 +111,19 @@ class App extends React.Component {
       quantity: item.quantity
     }
     console.log("hello from move to pantry: ", itemToMove)
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/groceries/move',
-    //   data: JSON.stringify(itemToMove),
-    //   contentType: 'application/json',
-    //   success: (data) => {
-    //     console.log('data', data);
-    //     // update()
-    //   },
-    //   error: (err) => {
-    //     console.log("err", err);
-    //   }
-    // })
+    $.ajax({
+      type: 'POST',
+      url: '/groceries/move',
+      data: JSON.stringify(itemToMove),
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('data', data);
+        // update()
+      },
+      error: (err) => {
+        console.log("err", err);
+      }
+    })
   }
 
   render () {
