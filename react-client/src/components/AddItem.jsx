@@ -4,16 +4,19 @@ class AddItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      item: ''
+      item: '',
+      quantity: ''
     }
   }
 
   handleSubmit(e) {
     var context = this;
-    console.log("state value", this.state.item)
+    // console.log("state value", this.state.item);
+    // console.log("quantity", this.state.quantity);
     e.preventDefault();
     var groceryItem = {
-      item: context.state.item
+      item: context.state.item,
+      quantity: context.state.quantity
     }
     $.ajax({
       type: 'POST',
@@ -36,6 +39,11 @@ class AddItem extends React.Component {
     })
   }
 
+  changeQuantity(e) {
+    this.setState({
+      quantity: e.target.value
+    })
+  }
   render() {
     return(
       <div>
@@ -43,6 +51,8 @@ class AddItem extends React.Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           Item name:<br/>
           <input type="text" name="itemname" onChange={this.changeItem.bind(this)} /><br/>
+          Quantity: <br/>
+          <input type="text" name="quantity" onChange={this.changeQuantity.bind(this)} /><br/>
           <input name="submit" type="submit" value="Submit"  />
         </form>
       </div>)

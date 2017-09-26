@@ -16,6 +16,7 @@ class App extends React.Component {
     $.ajax({
       url: '/items', 
       success: (data) => {
+        console.log(data);
         this.setState({
           items: data
         })

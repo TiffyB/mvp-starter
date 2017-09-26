@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
@@ -12,11 +13,26 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  itemname: String,
+  quantity: Number
 });
 
 var Item = mongoose.model('Item', itemSchema);
+
+var addItem = function(item) {
+  var itemname = item.item;
+  var quantity = item.quantity;
+  var newItem = new Item({ itemname: itemname, quantity: quantity });
+  return new Promise(function(resolve, reject) {
+    newItem.save(function(err, newItem) {
+      if (err) {
+        reject(err);
+      }
+      resolve(newItem);
+    })
+  })
+
+}
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
@@ -29,3 +45,4 @@ var selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
+module.exports.addItem = addItem;

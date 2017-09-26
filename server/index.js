@@ -25,17 +25,13 @@ app.get('/items', function (req, res) {
 });
 
 app.post('/items', jsonParser, function(req, res) {
-	console.log(req.body);
-	// var data;
-	// req.on('data', function(data) {
-	// 	data = data;
-	// })
-	// req.on('end', function() {
-	// 	console.log(data)
+	return items.addItem(req.body)
+	.then((item) => {
 		res.end('got it');
-	// })
-
-	
+	})
+	.error((error) => {
+		res.sendStatus(500);
+	})	
 })
 
 app.listen(3000, function() {
