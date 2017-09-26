@@ -17,12 +17,32 @@ var itemSchema = mongoose.Schema({
   quantity: Number
 });
 
+var grocerySchema = mongoose.Schema({
+  itemname: String,
+  quantity: Number
+});
+
 var Item = mongoose.model('Item', itemSchema);
+var Grocery = mongoose.model('Grocery', grocerySchema)
 
 var addItem = function(item) {
   var itemname = item.item;
   var quantity = item.quantity;
   var newItem = new Item({ itemname: itemname, quantity: quantity });
+  return new Promise(function(resolve, reject) {
+    newItem.save(function(err, newItem) {
+      if (err) {
+        reject(err);
+      }
+      resolve(newItem);
+    })
+  })
+}
+
+var addGroceryItem = function(item) {
+  var itemname = item.item;
+  var quantity = item.quantity;
+  var newItem = new Grocery({ itemname: itemname, quantity: quantity });
   return new Promise(function(resolve, reject) {
     newItem.save(function(err, newItem) {
       if (err) {
@@ -56,6 +76,18 @@ var selectAll = function(callback) {
   });
 };
 
+var selectAllGroceries = function(callback) {
+  Grocery.find({}, function(err, items) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, items);
+    }
+  });
+};
+
 module.exports.selectAll = selectAll;
 module.exports.addItem = addItem;
 module.exports.removeItem = removeItem;
+module.exports.addGroceryItem = addGroceryItem;
+module.exports.selectAllGroceries = selectAllGroceries;

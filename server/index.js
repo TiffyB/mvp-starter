@@ -44,15 +44,29 @@ app.post('/items/remove', jsonParser, function(req, res) {
 		.error(error => {
 			res.sendStatus(500);
 		})
-	// res.send('received post to items/remove')
-	// return items.addItem(req.body)
-	// .then((item) => {
-	// 	res.end('got it');
-	// })
-	// .error((error) => {
-	// 	res.sendStatus(500);
-	// })	
 })
+
+app.get('/groceries', function (req, res) {
+  items.selectAllGroceries(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
+}); 
+
+app.post('/groceries', jsonParser, function(req, res) {
+	
+	return items.addGroceryItem(req.body)
+	.then((item) => {
+		res.end('got it');
+	})
+	.error((error) => {
+		res.sendStatus(500);
+	})	
+})
+
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');

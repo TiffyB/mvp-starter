@@ -4,6 +4,7 @@ class AddItem extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addGrocery = this.addGrocery.bind(this);
     this.state = {
       item: '',
       quantity: ''
@@ -12,17 +13,16 @@ class AddItem extends React.Component {
 
   handleSubmit(e) {
     var context = this;
+    console.log(e);
     e.preventDefault();
-    console.log('context', context.state);
     var groceryItem = {
       item: this.state.item,
       quantity: this.state.quantity
     }
-    context.setState({
+    this.setState({
       item: '',
       quantity: ''
     })
-    console.log(groceryItem)
     $.ajax({
       type: 'POST',
       url: 'http:\//\//127.0.0.1:3000/items',
@@ -35,7 +35,33 @@ class AddItem extends React.Component {
       error: function(error) {
         console.log(error);
       }
+    })
+  }
 
+  addGrocery(e) {
+    var context = this;
+    console.log(e);
+    e.preventDefault();
+    var groceryItem = {
+      item: this.state.item,
+      quantity: this.state.quantity
+    }
+    this.setState({
+      item: '',
+      quantity: ''
+    })
+    $.ajax({
+      type: 'POST',
+      url: 'http:\//\//127.0.0.1:3000/groceries',
+      data: JSON.stringify(groceryItem),
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('data', data);
+        context.props.update();
+      },
+      error: function(error) {
+        console.log(error);
+      }
     })
   }
 
@@ -51,13 +77,6 @@ class AddItem extends React.Component {
     })
   }
 
-  clearInput() {
-
-    this.setState({
-      item: '',
-      quantity: ''
-    })
-  }
   
   render() {
     return(
@@ -65,10 +84,12 @@ class AddItem extends React.Component {
         <h4> Add Purchased Grocery Item Below </h4>
         <form onSubmit={this.handleSubmit}>
           Item name:<br/>
-          <input type="text" name="itemname" value={this.state.item} onChange={this.changeItem.bind(this)} /><br/>
+          <input type="text" className="itemname" name="itemname" value={this.state.item} onChange={this.changeItem.bind(this)} /><br/>
           Quantity: <br/>
-          <input type="text" name="quantity" value={this.state.quantity} onChange={this.changeQuantity.bind(this)} /><br/>
-          <input name="submit" type="submit" value="Submit"  />
+          <input type="text" className="quantity" name="quantity" value={this.state.quantity} onChange={this.changeQuantity.bind(this)} /><br/>
+
+          <button type="button" onClick={this.handleSubmit}>Add to Pantry</button>
+          <button type="button" onClick={this.addGrocery}>Add to Grocery List</button>
         </form>
       </div>)
   }

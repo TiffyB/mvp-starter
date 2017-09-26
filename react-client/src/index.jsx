@@ -38,11 +38,8 @@ class App extends React.Component {
         console.log('err', err);
       }
     });
-  }
-
-  update() {
     $.ajax({
-      url: '/items', 
+      url: '/groceries', 
       success: (data) => {
 
         data = data.sort(function(a, b) {
@@ -57,7 +54,7 @@ class App extends React.Component {
           return 0;
         })
         this.setState({
-          items: data
+          neededItems: data
         })
       },
       error: (err) => {
@@ -65,6 +62,7 @@ class App extends React.Component {
       }
     });
   }
+
 
   removeItem(item, update) { 
     var itemToRemove = {
@@ -84,17 +82,39 @@ class App extends React.Component {
     })
   }
 
+  removeGrocery(item, update) { 
+    var itemToRemove = {
+      itemname: item.itemname
+    }
+    console.log("hello from groceries", itemToRemove);
+    $.ajax({
+      type: 'POST',
+      url: '/groceries/remove',
+      data: JSON.stringify(itemToRemove),
+      contentType: 'application/json',
+      success: (data) => {
+        update()
+      },
+      error: (err) => {
+        console.log("err", err);
+      }
+    })
+  }
+
   removeOne(item) {
     //subtract one from quantity
   }
 
+  addToGroceryList(item) {
+
+  }
 
   render () {
     return (<div>
       <h1>KitchInventory</h1>
       <AddItem update={this.componentDidMount.bind(this)}/>
       <List items={this.state.items} removeItem={this.removeItem} update={this.componentDidMount.bind(this)}/>
-      <GroceryList items={this.state.neededItems}/>
+      <GroceryList items={this.state.neededItems} removeItem={this.removeGrocery} update={this.componentDidMount.bind(this)}/>
     </div>)
   }
 }
