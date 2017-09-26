@@ -58,3 +58,4 @@ var selectAll = function(callback) {
 
 module.exports.selectAll = selectAll;
 module.exports.addItem = addItem;
+module.exports.removeItem = removeItem;
