@@ -128,7 +128,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>KitchInventory</h1>
+      <h1><span className="firstTitle">Kitch</span><span className="secondTitle">Inventory</span></h1>
       <AddItem update={this.componentDidMount.bind(this)}/>
       <List items={this.state.items} removeItem={this.removeItem} update={this.componentDidMount.bind(this)}/>
       <GroceryList items={this.state.neededItems} removeItem={this.removeGrocery} moveItem = {this.moveToPantry} update={this.componentDidMount.bind(this)}/>

@@ -81,11 +81,11 @@ class AddItem extends React.Component {
   render() {
     return(
       <div>
-        <h4> Add Purchased Grocery Item Below </h4>
+        <h4> Enter Grocery Item Below </h4>
         <form onSubmit={this.handleSubmit}>
-          Item name:<br/>
+          <span className="itemname">Item name:</span><br/>
           <input type="text" className="itemname" name="itemname" value={this.state.item} onChange={this.changeItem.bind(this)} /><br/>
-          Quantity: <br/>
+          <span className="quantity">Quantity: </span><br/>
           <input type="text" className="quantity" name="quantity" value={this.state.quantity} onChange={this.changeQuantity.bind(this)} /><br/>
 
           <button type="button" onClick={this.handleSubmit}>Add to Pantry</button>
