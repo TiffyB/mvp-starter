@@ -66,14 +66,16 @@ class App extends React.Component {
     });
   }
 
-  removeItem() { //remove item's this is List item...how can this trigger a re-rendering
+  removeItem(item, update) { //remove item's this is List item...how can this trigger a re-rendering
     var context = this;
     // var update = this.componentDidMount.bind(this);
     console.log('clicked')
-    console.log('this', this);
+    // console.log('this items name', this.item.itemname);
+    console.log('stuff', item.itemname)
+    // console.log(this.props.update)
     // console.log('item', item);
     var itemToRemove = {
-      itemname: this.itemname
+      itemname: item.itemname
     }
     console.log(itemToRemove)
     $.ajax({
@@ -82,7 +84,7 @@ class App extends React.Component {
       data: JSON.stringify(itemToRemove),
       contentType: 'application/json',
       success: (data) => {
-        context.props.update()
+        update()
         // console.log(data);
       },
       error: (err) => {
