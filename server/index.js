@@ -25,6 +25,7 @@ app.get('/items', function (req, res) {
 });
 
 app.post('/items', jsonParser, function(req, res) {
+	
 	return items.addItem(req.body)
 	.then((item) => {
 		res.end('got it');

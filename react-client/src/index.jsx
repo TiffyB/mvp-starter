@@ -16,7 +16,23 @@ class App extends React.Component {
     $.ajax({
       url: '/items', 
       success: (data) => {
-        console.log(data);
+        // console.log(data[0].itemname[0].toUpperCase());
+        // data = data.map((item) => {
+        //   item.itemname[0] = item.itemname[0].toUpperCase();
+        //   console.log(item.itemname[0])
+        //   return item;
+        // })
+        data = data.sort(function(a, b) {
+          var itemA = a.itemname.toUpperCase();
+          var itemB = b.itemname.toUpperCase();
+          if (itemA < itemB) {
+            return -1;
+          }
+          if (itemA > itemB) {
+            return 1;
+          }
+          return 0;
+        })
         this.setState({
           items: data
         })
