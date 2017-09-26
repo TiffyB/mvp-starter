@@ -26,10 +26,19 @@ class App extends React.Component {
     });
   }
 
+  handleSubmit(e) {
+    //submit post request to server with item information
+    //refresh this.state.items upon completion
+    console.log("event value: ", e.target.value);
+    // console.log("input val: ", input.itemname)
+    e.preventDefault();
+    console.log("clicked!")
+  }
+
   render () {
     return (<div>
       <h1>KitchInventory</h1>
-      <AddItem />
+      <AddItem handleSubmit={this.handleSubmit.bind(this)}/>
       <List items={this.state.items}/>
     </div>)
   }
