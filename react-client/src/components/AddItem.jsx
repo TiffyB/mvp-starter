@@ -9,21 +9,25 @@ class AddItem extends React.Component {
   }
 
   handleSubmit(e) {
-    // var context = this;
+    var context = this;
     console.log("state value", this.state.item)
     e.preventDefault();
     console.log("clicked!")
-    // var groceryItem = {
-    //   item: context.state.item
-    // }
-    // $.ajax({
-    //   method: 'POST',
-    //   url: 'http:\//\//127.0.0.1:3000/items',
-    //   data: (context.state.item)
-    //   success(data): {
+    var groceryItem = {
+      item: context.state.item
+    }
+    $.ajax({
+      method: 'POST',
+      url: 'http:\//\//127.0.0.1:3000/items',
+      data: JSON.stringify(groceryItem),
+      success: function(data) {
+        console.log(data);
+      },
+      error: function(error) {
+        console.log(error);
+      }
 
-    //   } 
-    // })
+    })
   }
 
   changeItem(e) {
