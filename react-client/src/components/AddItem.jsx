@@ -16,7 +16,7 @@ class AddItem extends React.Component {
     console.log(e);
     e.preventDefault();
     var groceryItem = {
-      item: this.state.item,
+      itemname: this.state.item,
       quantity: this.state.quantity
     }
     this.setState({

@@ -25,7 +25,7 @@ app.get('/items', function (req, res) {
 });
 
 app.post('/items', jsonParser, function(req, res) {
-	
+	console.log(req.body); //{ itemname: 'apricots', quantity: '4' }
 	return items.addItem(req.body)
 	.then((item) => {
 		res.end('got it');
