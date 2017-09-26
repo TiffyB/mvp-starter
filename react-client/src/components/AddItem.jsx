@@ -25,6 +25,7 @@ class AddItem extends React.Component {
       contentType: 'application/json',
       success: function(data) {
         console.log('data', data);
+        context.props.update();
       },
       error: function(error) {
         console.log(error);
@@ -47,7 +48,7 @@ class AddItem extends React.Component {
   render() {
     return(
       <div>
-        <h4> Add Kitchen Item </h4>
+        <h4> Add Purchased Grocery Item Below </h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
           Item name:<br/>
           <input type="text" name="itemname" onChange={this.changeItem.bind(this)} /><br/>

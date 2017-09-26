@@ -16,12 +16,7 @@ class App extends React.Component {
     $.ajax({
       url: '/items', 
       success: (data) => {
-        // console.log(data[0].itemname[0].toUpperCase());
-        // data = data.map((item) => {
-        //   item.itemname[0] = item.itemname[0].toUpperCase();
-        //   console.log(item.itemname[0])
-        //   return item;
-        // })
+
         data = data.sort(function(a, b) {
           var itemA = a.itemname.toUpperCase();
           var itemB = b.itemname.toUpperCase();
@@ -43,16 +38,11 @@ class App extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    console.log("event value: ", e.target.value);
-    e.preventDefault();
-    console.log("clicked!")
-  }
 
   render () {
     return (<div>
       <h1>KitchInventory</h1>
-      <AddItem handleSubmit={this.handleSubmit.bind(this)}/>
+      <AddItem update={this.componentDidMount.bind(this)}/>
       <List items={this.state.items}/>
     </div>)
   }
