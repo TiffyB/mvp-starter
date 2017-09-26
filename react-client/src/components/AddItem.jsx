@@ -12,7 +12,6 @@ class AddItem extends React.Component {
     var context = this;
     console.log("state value", this.state.item)
     e.preventDefault();
-    console.log("clicked!")
     var groceryItem = {
       item: context.state.item
     }
@@ -21,7 +20,7 @@ class AddItem extends React.Component {
       url: 'http:\//\//127.0.0.1:3000/items',
       data: JSON.stringify(groceryItem),
       success: function(data) {
-        console.log(data);
+        console.log('data', data);
       },
       error: function(error) {
         console.log(error);
