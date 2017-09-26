@@ -63,6 +63,17 @@ var removeItem = function(item) {
       resolve();
     })
   })
+}
+
+var removeGrocery = function(item) {
+  return new Promise(function(resolve, reject) {
+    Grocery.remove(item, function(err) {
+      if (err) {
+        reject(err);
+      }
+      resolve();
+    })
+  })
   
 }
 
@@ -91,3 +102,4 @@ module.exports.addItem = addItem;
 module.exports.removeItem = removeItem;
 module.exports.addGroceryItem = addGroceryItem;
 module.exports.selectAllGroceries = selectAllGroceries;
+module.exports.removeGrocery = removeGrocery;

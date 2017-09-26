@@ -67,6 +67,17 @@ app.post('/groceries', jsonParser, function(req, res) {
 	})	
 })
 
+app.post('/groceries/remove', jsonParser, function(req, res) {
+	console.log(req.body);
+	return items.removeGrocery(req.body)
+		.then(() => {
+			res.send('received post to items/remove')
+		})
+		.error(error => {
+			res.sendStatus(500);
+		})
+})
+
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
